@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Box, Container, Grid } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import { Button, ButtonGroup } from "@mui/material";
 import { Layout } from '../components/Layout';
 
@@ -10,47 +10,54 @@ const Home = () => (
           Home | F1 Stats App
         </title>
       </Head>
-      <Box
-          component="main"
-          sx={{
-            flexGrow: 1,
-            py: 8
-          }}
-      >
+        <Box
+            component="main"
+            sx={{
+                flexGrow: 1,
+                py: 5
+            }}
+        >
         <Container maxWidth={false}>
-            <Grid
-                container
-                spacing={3}
+        <Typography
+            sx={{ m: 1 }}
+            variant="h4"
+        >
+            Formula 1
+        </Typography>
+        <Grid sx={{ mt: 3 }}>
+            <Typography
+                variant="h7"
+                sx={{ m: 1 }}
             >
-                <Grid
-                    item
-                    lg={8}
-                    md={12}
-                    xl={9}
-                    xs={12}
-                >
-                    <p>
-                        Welcome to my Formula One 2021 application.
-                    </p>
-                    GitHub Links:
-                    <Button
-                        href="https://github.com/cire339/f1-app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        API Project
-                    </Button>
-                    <Button
-                        href="https://github.com/cire339/f1-app-ui"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        UI Project
-                    </Button>
-                </Grid>
-            </Grid>
+                GitHub Links:
+            </Typography>
+            <p>
+            <Button
+                color="secondary"
+                variant="contained"
+                href="https://github.com/cire339/f1-app"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{m: 1}}
+            >
+                API Project
+            </Button>
+            </p>
+            <p>
+            <Button
+                color="secondary"
+                variant="contained"
+                href="https://github.com/cire339/f1-app-ui"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{m: 1}}
+            >
+                UI Project
+            </Button>
+            </p>
+        </Grid>
         </Container>
-      </Box>
+        </Box>
     </>
 );
 
