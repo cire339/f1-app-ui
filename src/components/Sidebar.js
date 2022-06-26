@@ -7,7 +7,7 @@ import { Home as HomeIcon } from '../icons/home';
 import { CheckeredFlag as CheckeredFlagIcon } from '../icons/checkered-flag'
 import { Stopwatch as StopwatchIcon } from '../icons/stopwatch'
 import { Wrench as WrenchIcon } from '../icons/wrench'
-import F1LogoFull from '../logos/f1_logo.png';
+import F1LogoFull from '../images/f1_logo.png';
 import { NavItem } from './Nav-Item';
 import Image from "next/image";
 
@@ -23,7 +23,7 @@ const items = [
     title: 'Race History'
   },
   {
-    href: '/fastest-laps',
+    href: '/tracks',
     icon: (<StopwatchIcon fontSize="small" />),
     title: 'Fastest Laps'
   },
