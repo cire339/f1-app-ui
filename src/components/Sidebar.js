@@ -23,7 +23,7 @@ const items = [
     title: 'Race History'
   },
   {
-    href: '/tracks',
+    href: '/fastest-laps/tracks',
     icon: (<StopwatchIcon fontSize="small" />),
     title: 'Fastest Laps'
   },

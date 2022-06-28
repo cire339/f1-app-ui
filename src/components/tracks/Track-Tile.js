@@ -3,66 +3,72 @@ import flags from "../../images/flags";
 import Image from "next/image";
 import NextLink from "next/link";
 
-export const TrackTile = (props) => (
-    <NextLink
-        href="/tracks/fastest-laps"
-        passHref
-    >
-        <Card
-            sx={{ height: '100%',
-                '&:hover': {
-                    backgroundColor: 'rgba(255,255,255, 0.08)'
-                } }}
-            {...props}
+export const TrackTile = (props) => {
+    const countryName =  getCountryName(props.trackCode);
+    const nextPageUrl = "/fastest-laps/" + countryName.toLowerCase();
+
+    return (
+        <NextLink
+            href={nextPageUrl}
+            passHref
+            state={{ trackCode: props.trackCode}}
         >
-            <CardContent>
-                <Grid
-                    container
-                    spacing={3}
-                    sx={{ justifyContent: 'space-between' }}
-                >
-                    <Grid item
-                          xl={4}
-                          lg={4}
-                          sm={8}
-                          xs={16}>
-                        <Typography
-                            color="textPrimary"
-                            variant="h4"
-                        >
-                            {getCountryName(props.trackCode)}
-                        </Typography>
-                    </Grid>
+            <Card
+                sx={{ height: '100%',
+                    '&:hover': {
+                        backgroundColor: 'rgba(255,255,255, 0.08)'
+                    } }}
+                {...props}
+            >
+                <CardContent>
                     <Grid
-                        item
-                        xl={4}
-                        lg={4}
-                        sm={8}
-                        xs={16}
+                        container
+                        spacing={3}
+                        sx={{ justifyContent: 'space-between' }}
                     >
-                        <Image
-                            src={getFlagIcon(props.trackCode)}
-                        />
+                        <Grid item
+                              xl={4}
+                              lg={4}
+                              sm={8}
+                              xs={16}>
+                            <Typography
+                                color="textPrimary"
+                                variant="h4"
+                            >
+                                {countryName}
+                            </Typography>
+                        </Grid>
+                        <Grid
+                            item
+                            xl={4}
+                            lg={4}
+                            sm={8}
+                            xs={16}
+                        >
+                            <Image
+                                src={getFlagIcon(props.trackCode)}
+                            />
+                        </Grid>
                     </Grid>
-                </Grid>
-                <Box
-                    sx={{
-                        pt: 2,
-                        display: 'flex',
-                        alignItems: 'center'
-                    }}
-                >
-                    <Typography
-                        color="textSecondary"
-                        variant="h7"
+                    <Box
+                        sx={{
+                            pt: 2,
+                            display: 'flex',
+                            alignItems: 'center'
+                        }}
                     >
-                        {getCircuitName(props.trackCode)}
-                    </Typography>
-                </Box>
-            </CardContent>
-        </Card>
-    </NextLink>
-);
+                        <Typography
+                            color="textSecondary"
+                            variant="h7"
+                        >
+                            {getCircuitName(props.trackCode)}
+                        </Typography>
+                    </Box>
+                </CardContent>
+            </Card>
+        </NextLink>
+    );
+}
 
 const getCountryName = (trackCode) => {
     switch(trackCode) {
@@ -89,7 +95,7 @@ const getCountryName = (trackCode) => {
         case 'SPA':
             return 'Belgium';
         case 'MONZA':
-            return 'Italy';
+            return 'Italy (Monza)';
         case 'SINGAPORE':
             return 'Singapore';
         case 'SUZUKA':
@@ -109,19 +115,19 @@ const getCountryName = (trackCode) => {
         case 'BAKU_AZERBAIJAN':
             return 'Azerbaijan';
         case 'SAKHIR_SHORT':
-            return 'Bahrain';
+            return 'Bahrain (Short)';
         case 'SILVERSTONE_SHORT':
-            return 'United Kingdom';
+            return 'United Kingdom (Short)';
         case 'TEXAS_SHORT':
-            return 'United States';
+            return 'United States (Short)';
         case 'SUZUKA_SHORT':
-            return 'Japan';
+            return 'Japan (Short)';
         case 'HANOI':
             return 'Vietnam';
         case 'ZANDVOORT':
             return 'Netherlands';
         case 'IMOLA':
-            return 'Italy';
+            return 'Italy (Imola)';
         case 'PORTIMAO':
             return 'Portugal';
         case 'JEDDAH':
